@@ -1,0 +1,20 @@
+@import 'defaults';
+
+@font-face {
+	font-family: roboto;
+	src: url('../fonts/roboto-regular.woff2') format('woff2'),
+		url('../fonts/roboto-regular.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+}
+
+
+body {
+	background: $color-1;
+	font-family: roboto, sans-serif;
+	border: 10px solid black;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+}
+
