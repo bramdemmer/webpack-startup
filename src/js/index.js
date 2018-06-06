@@ -6,7 +6,7 @@ import '../index.html';
 
 document.body.appendChild(component());
 
-
+console.log('logged!');
 const fromTheFuture = async (args) => {
   const {a, b} = args;
   await console.log('hello form async', a, b);

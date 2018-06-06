@@ -4,12 +4,14 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+const env = process.env.NODE_ENV;
+
 module.exports = {
   entry: {
     main: ['./src/js/index.js'],
   },
   output: {
-    filename: './js/bundle-[chunkhash].js',
+    filename: './js/[name].[chunkhash].js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -45,7 +47,8 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-            name: 'images/[name]-[hash:12].[ext]'
+            name: '[name]-[hash:12].[ext]',
+            outputPath: './images/',
           }
         }]
       },
@@ -92,7 +95,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin('dist', {}),
     new MiniCSSExtractPlugin({
-      filename: './css/[name]-[contenthash].css'
+      filename: './css/[name].[contenthash].css',
     }),
   ]
 };

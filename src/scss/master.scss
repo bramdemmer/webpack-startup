@@ -10,11 +10,13 @@
 
 
 body {
-	background: $color-1;
+	background-image: url('../images/jpeg.jpg');
+	background-color: $color-1;
 	font-family: roboto, sans-serif;
 	border: 10px solid black;
 	display: flex;
 	flex-flow: column wrap;
 	align-items: center;
+	color: #000;
 }
 
