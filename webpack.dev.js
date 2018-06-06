@@ -1,22 +1,26 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
+// const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'source-map',
+  devtool: 'eval',
+  watch: true,
   devServer:  {
-    contentBase: 'dist',
+    contentBase: 'dist', // Tell the server where to serve content from. This is only necessary if you want to serve static files.
     overlay: true,
+    open: true,
+    port: 8080,
     stats: {
       colors: true
     }
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('development')
-      }
-    })
+    // new webpack.DefinePlugin({
+    //   'process.env': {
+    //     'NODE_ENV': JSON.stringify('development')
+    //   }
+    // })
   ]
 });
