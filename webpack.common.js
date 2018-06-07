@@ -11,8 +11,9 @@ module.exports = {
     main: ['./src/js/index.js'],
   },
   output: {
-    filename: './js/[name].[chunkhash].js',
+    filename: './js/[name].js',
     path: path.resolve(__dirname, 'dist'),
+    // publicPath: 'dist'
   },
   module: {
     rules: [
@@ -29,16 +30,25 @@ module.exports = {
         test: /\.scss$/,
         use: [
           {
-            loader: MiniCSSExtractPlugin.loader // creates style nodes from JS strings
+            loader: MiniCSSExtractPlugin.loader
           },
           {
-            loader: 'css-loader', // translates CSS into CommonJS
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
           },
           {
-            loader: 'postcss-loader'
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
           },
           {
-            loader: 'sass-loader' // compiles Sass to CSS
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
           }
         ]
       },
@@ -47,8 +57,9 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-            name: '[name]-[hash:12].[ext]',
-            outputPath: './images/',
+            name: '[name].[ext]',
+            outputPath: 'images/',
+            publicPath: '../images/',
           }
         }]
       },
@@ -57,8 +68,8 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-            name: '[name]-[hash:12].[ext]',
-            outputPath: './fonts/',
+            name: '[name].[ext]',
+            outputPath: 'fonts/',
             publicPath: '../fonts/',
           }
         }]
@@ -66,36 +77,33 @@ module.exports = {
       {
         test: /\.html$/,
         use: [
-          // {
-          //   loader: 'file-loader', // tells webpack the name of the file we want to create.
-          //   options: {
-          //     name: '[name].[ext]'
-          //   }
-          // },
-          // {
-          //   loader: 'extract-loader', // makes it a seperate file and does not include it in the main-bundle.js
-          //   options: {
-          //     publicPath: './'
-          //   }
-          // },
           {
-            loader: 'html-loader', // Does the linting and passes it to the extract loader
-            // options: {
-            //   attrs: ['img:src']
-            // }
+            loader: 'file-loader', // tells webpack the name of the file we want to create.
+            options: {
+              name: '[name].[ext]'
+            }
+          },
+          {
+            loader: 'extract-loader', // makes it a seperate file and does not include it in the main-bundle.js
+            options: {
+              publicPath: '/'
+            }
+          },
+          {
+            loader: 'html-loader',
           }
         ]
       }
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html",
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: "./src/index.html",
+    //   filename: "./index.html",
+    // }),
     new CleanWebpackPlugin('dist', {}),
     new MiniCSSExtractPlugin({
-      filename: './css/[name].[contenthash].css',
+      filename: './css/[name].css',
     }),
   ]
 };
