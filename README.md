@@ -1,13 +1,25 @@
 # webpack-startup
 
 Todo:
-- CSS/SCSS sourcemaps
 - SVG icons
 - multibrand version
 - vue integration
 - enable hot module reloading
 - add url-loader for small images
 - image-webpack-loader for image optimalisation in prod
+- add `-[hash:8]` to files.
+
+eslint rules (extra)
+````json
+"padded-blocks": "off",
+"function-paren-newline": "off",
+"max-len": "off",
+"no-use-before-define": ["error", { "functions": false, "classes": true }],
+"comma-dangle": ["error", "only-multiline"],
+"no-param-reassign": ["error", { "props": false }],
+"no-underscore-dangle": "off",
+"import/no-extraneous-dependencies": "off",
+````
 
 To check/test:
 - `vue-hot-reload-api` hot module reloading for vuejs.

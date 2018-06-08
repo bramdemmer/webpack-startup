@@ -1,0 +1,5 @@
+# Custom folder to ignore
+node_modules/*
+dist/*
+dest/*
+build/*

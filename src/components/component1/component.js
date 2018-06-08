@@ -2,8 +2,8 @@ import './component.scss';
 
 console.log('Component1 JS loaded.');
 
-export default (text = "Hello world") => {
-  const element = document.createElement("div");
+export default (text = 'Hello world') => {
+  const element = document.createElement('div');
 
   element.innerHTML = text;
 

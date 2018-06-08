@@ -1,16 +1,11 @@
 const path = require('path');
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CssUrlRelativePlugin = require('css-url-relative-plugin')
-
+const CssUrlRelativePlugin = require('css-url-relative-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 // const env = process.env.NODE_ENV;
-
-// const dir = {
-//   dist: path.resolve(__dirname, 'dist'),
-//   src: path.resolve(__dirname, 'src'),
-// }
 
 module.exports = {
   entry: {
@@ -28,35 +23,47 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader'
-          }
-        ]
+            loader: 'babel-loader',
+          },
+        ],
       },
       {
-        test: /\.scss$/,
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        options: {
+          emitError: true,
+          emitWarning: true,
+          fix: true,
+        },
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
         use: [
           {
-            loader: MiniCSSExtractPlugin.loader
+            loader: MiniCSSExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
             options: {
               sourceMap: true,
-            }
+              // importLoaders: 1,
+            },
           },
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true
-            }
+              sourceMap: 'inline',
+            },
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true
-            }
-          }
-        ]
+              sourceMap: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -65,8 +72,8 @@ module.exports = {
           options: {
             name: '[name].[ext]',
             outputPath: './images/',
-          }
-        }]
+          },
+        }],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -75,8 +82,8 @@ module.exports = {
           options: {
             name: '[name].[ext]',
             outputPath: './fonts/',
-          }
-        }]
+          },
+        }],
       },
       {
         test: /\.html$/,
@@ -84,28 +91,34 @@ module.exports = {
           {
             loader: 'file-loader', // tells webpack the name of the file we want to create.
             options: {
-              name: '[name].[ext]'
-            }
+              name: '[name].[ext]',
+            },
           },
           {
-            loader: 'extract-loader', // makes it a seperate file and does not include it in the main-bundle.js
+            loader: 'extract-loader',
+            // options: {
+            //   publicPath: './',
+            // },
+
+            // makes it a seperate file and does not include it in the main-bundle.js
           },
           {
             loader: 'html-loader',
-          }
-        ]
-      }
-    ]
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     // new HtmlWebpackPlugin({
     //   template: "./src/index.html",
     //   filename: "./index.html",
     // }),
+    new StyleLintPlugin(),
     new CssUrlRelativePlugin(),
     new CleanWebpackPlugin('dist', {}),
     new MiniCSSExtractPlugin({
       filename: './css/[name].css',
     }),
-  ]
+  ],
 };

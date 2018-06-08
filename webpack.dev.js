@@ -6,12 +6,12 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval',
   watch: true,
-  devServer:  {
-    contentBase: 'dist/index.html', // Tell the server where to serve content from. This is only necessary if you want to serve static files.
-    overlay: true,
+  devServer: {
+    contentBase: 'dist', // Tell the server where to serve content from. This is only necessary if you want to serve static files.
+    // overlay: true,
     open: true,
     port: 8080,
-    stats: 'errors-only'
+    stats: 'errors-only',
 
     // Don't refresh if hot loading fails. Good while
     // implementing the client interface.
@@ -23,9 +23,9 @@ module.exports = merge(common, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('development')
-      }
-    })
+        NODE_ENV: JSON.stringify('development'),
+      },
+    }),
     // new webpack.HotModuleReplacementPlugin(),
-  ]
+  ],
 });
