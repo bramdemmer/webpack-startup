@@ -21,11 +21,11 @@ module.exports = merge(common, {
     // hot: true,
   },
   plugins: [
-    // new webpack.DefinePlugin({
-    //   'process.env': {
-    //     'NODE_ENV': JSON.stringify('development')
-    //   }
-    // })
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development')
+      }
+    })
     // new webpack.HotModuleReplacementPlugin(),
   ]
 });

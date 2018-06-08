@@ -3,8 +3,14 @@ const webpack = require('webpack');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CssUrlRelativePlugin = require('css-url-relative-plugin')
 
-const env = process.env.NODE_ENV;
+// const env = process.env.NODE_ENV;
+
+// const dir = {
+//   dist: path.resolve(__dirname, 'dist'),
+//   src: path.resolve(__dirname, 'src'),
+// }
 
 module.exports = {
   entry: {
@@ -13,7 +19,7 @@ module.exports = {
   output: {
     filename: './js/[name].js',
     path: path.resolve(__dirname, 'dist'),
-    // publicPath: 'dist'
+    // publicPath: './dist/'
   },
   module: {
     rules: [
@@ -35,7 +41,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true
+              sourceMap: true,
             }
           },
           {
@@ -58,8 +64,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'images/',
-            publicPath: '../images/',
+            outputPath: './images/',
           }
         }]
       },
@@ -69,8 +74,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'fonts/',
-            publicPath: '../fonts/',
+            outputPath: './fonts/',
           }
         }]
       },
@@ -85,9 +89,6 @@ module.exports = {
           },
           {
             loader: 'extract-loader', // makes it a seperate file and does not include it in the main-bundle.js
-            options: {
-              publicPath: '/'
-            }
           },
           {
             loader: 'html-loader',
@@ -101,6 +102,7 @@ module.exports = {
     //   template: "./src/index.html",
     //   filename: "./index.html",
     // }),
+    new CssUrlRelativePlugin(),
     new CleanWebpackPlugin('dist', {}),
     new MiniCSSExtractPlugin({
       filename: './css/[name].css',

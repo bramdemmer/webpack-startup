@@ -6,6 +6,8 @@ Todo:
 - multibrand version
 - vue integration
 - enable hot module reloading
+- add url-loader for small images
+- image-webpack-loader for image optimalisation in prod
 
 To check/test:
 - `vue-hot-reload-api` hot module reloading for vuejs.
