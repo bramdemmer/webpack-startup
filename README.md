@@ -1,13 +1,11 @@
 # webpack-startup
 
 Todo:
-- SVG icons
+- SVG icons optimlisation with svgo
+- enable hot module reloading
 - multibrand version
 - vue integration
-- enable hot module reloading
-- add url-loader for small images
 - image-webpack-loader for image optimalisation in prod
-- add `-[hash:8]` to files.
 
 eslint rules (extra)
 ````json
@@ -18,10 +16,10 @@ eslint rules (extra)
 "comma-dangle": ["error", "only-multiline"],
 "no-param-reassign": ["error", { "props": false }],
 "no-underscore-dangle": "off",
-"import/no-extraneous-dependencies": "off",
 ````
 
 To check/test:
+- add url-loader for small images
 - `vue-hot-reload-api` hot module reloading for vuejs.
 - `optimization.splitChunks`
 - `optimization.runtimeChunk`
@@ -30,6 +28,8 @@ To check/test:
 - `optimization.namedModules` (on by default in production mode)
 - Test the difference between `babel-minify-webpack-plugin` and `uglifyjs-webpack-plugin`
 - Nice error overlays https://github.com/smooth-code/error-overlay-webpack-plugin
+- add `-[hash:8]` to files.
+
 
 - go through [all webpack loaders](https://webpack.js.org/loaders/)
 - go through [all webpack plugins](https://webpack.js.org/plugins/)

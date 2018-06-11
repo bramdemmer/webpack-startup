@@ -6,10 +6,12 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CssUrlRelativePlugin = require('css-url-relative-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 // const env = process.env.NODE_ENV;
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 module.exports = {
   entry: {
     main: ['./src/js/index.js'],
+    // assets: ['./src/scripts/assets.js'],
   },
   output: {
     filename: './js/[name].js',
@@ -67,6 +69,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
+        exclude: /icons/,
         use: [{
           loader: 'file-loader',
           options: {
@@ -74,6 +77,29 @@ module.exports = {
             outputPath: './images/',
           },
         }],
+      },
+      {
+        test: /\.svg$/,
+        include: /icons/,
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              extract: true,
+              spriteFilename: './icons/icons.svg',
+            },
+          },
+          // {
+          //   loader: 'svgo-loader',
+          //   options: {
+          //     plugins: [
+          //       { removeTitle: true },
+          //       { convertColors: { shorthex: false } },
+          //       { convertPathData: false },
+          //     ],
+          //   },
+          // },
+        ],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -114,6 +140,7 @@ module.exports = {
     //   template: "./src/index.html",
     //   filename: "./index.html",
     // }),
+    new SpriteLoaderPlugin(),
     new StyleLintPlugin({
       fix: true,
     }),
