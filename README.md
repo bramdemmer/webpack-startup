@@ -1,6 +1,7 @@
 # webpack-startup
 
 Todo:
+- create and env for browsersync.
 - SVG icons optimlisation with svgo
 - enable hot module reloading
 - multibrand version
