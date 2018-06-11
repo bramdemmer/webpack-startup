@@ -114,7 +114,9 @@ module.exports = {
     //   template: "./src/index.html",
     //   filename: "./index.html",
     // }),
-    new StyleLintPlugin(),
+    new StyleLintPlugin({
+      fix: true,
+    }),
     new CssUrlRelativePlugin(),
     new CleanWebpackPlugin('dist', {}),
     new MiniCSSExtractPlugin({

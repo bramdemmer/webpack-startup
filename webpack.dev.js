@@ -13,6 +13,7 @@ module.exports = merge(common, {
     port: 8080,
     stats: 'errors-only',
 
+
     // Don't refresh if hot loading fails. Good while
     // implementing the client interface.
     // hotOnly: true,
