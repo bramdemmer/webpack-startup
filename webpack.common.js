@@ -1,12 +1,13 @@
 const path = require('path');
 // const webpack = require('webpack');
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CssUrlRelativePlugin = require('css-url-relative-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-// const env = process.env.NODE_ENV;
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+
+// const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: {
@@ -44,13 +45,13 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         use: [
           {
-            loader: MiniCSSExtractPlugin.loader,
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
             options: {
               sourceMap: true,
-              // importLoaders: 1,
+              importLoaders: 1,
             },
           },
           {
@@ -68,7 +69,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jp(e*)g|gif)$/,
         exclude: /icons/,
         use: [{
           loader: 'file-loader',
@@ -145,8 +146,8 @@ module.exports = {
       fix: true,
     }),
     new CssUrlRelativePlugin(),
-    new CleanWebpackPlugin('dist', {}),
-    new MiniCSSExtractPlugin({
+    new CleanWebpackPlugin(path.resolve(__dirname, 'dist'), {}),
+    new MiniCssExtractPlugin({
       filename: './css/[name].css',
     }),
   ],
