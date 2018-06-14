@@ -4,9 +4,10 @@
       "env",
       {
         "targets": {
-          "browsers": ["last 2 versions"]
+          "browsers": ["last 2 versions", "ie < 10"]
         },
-        "debug": false
+        "debug": true,
+        "useBuiltIns": "usage"
       }
     ]
   ],

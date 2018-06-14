@@ -1,23 +1,17 @@
-const path = require('path');
-// const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CssUrlRelativePlugin = require('css-url-relative-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
-
-// const isDev = process.env.NODE_ENV === 'development';
+const config = require('./webpack.config');
+// const webpack = require('webpack');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: {
-    main: ['./src/js/index.js'],
-    // assets: ['./src/scripts/assets.js'],
-  },
+  entry: config.entry,
   output: {
-    filename: './js/[name].js',
-    path: path.resolve(__dirname, 'dist'),
-    // publicPath: './dist/'
+    filename: config.js.filename,
+    path: config.contentBase,
   },
   module: {
     rules: [
@@ -75,7 +69,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: './images/',
+            outputPath: config.images.outputPath,
           },
         }],
       },
@@ -87,7 +81,7 @@ module.exports = {
             loader: 'svg-sprite-loader',
             options: {
               extract: true,
-              spriteFilename: './icons/icons.svg',
+              spriteFilename: config.icons.spriteFilename,
             },
           },
           // {
@@ -108,7 +102,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: './fonts/',
+            outputPath: config.fonts.outputPath,
           },
         }],
       },
@@ -116,7 +110,7 @@ module.exports = {
         test: /\.html$/,
         use: [
           {
-            loader: 'file-loader', // tells webpack the name of the file we want to create.
+            loader: 'file-loader',
             options: {
               name: '[name].[ext]',
             },
@@ -126,8 +120,6 @@ module.exports = {
             // options: {
             //   publicPath: './',
             // },
-
-            // makes it a seperate file and does not include it in the main-bundle.js
           },
           {
             loader: 'html-loader',
@@ -146,9 +138,9 @@ module.exports = {
       fix: true,
     }),
     new CssUrlRelativePlugin(),
-    new CleanWebpackPlugin(path.resolve(__dirname, 'dist'), {}),
+    new CleanWebpackPlugin(config.contentBase, {}),
     new MiniCssExtractPlugin({
-      filename: './css/[name].css',
+      filename: config.css.filename,
     }),
   ],
 };

@@ -1,6 +1,4 @@
-# /node_modules/* and /bower_components/* in the project root are ignored by default
-
-# Custom folder to ignore
+node_modules/*
 dist/*
 dest/*
 build/*

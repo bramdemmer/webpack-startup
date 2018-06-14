@@ -1,8 +1,7 @@
 const webpack = require('webpack');
-const path = require('path');
 const merge = require('webpack-merge');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-// const config = require('./webpack.config');
+const config = require('./webpack.config');
 const common = require('./webpack.common');
 
 const useBrowserSync = process.env.browsersync === 'enable';
@@ -12,12 +11,12 @@ module.exports = merge(common, {
   devtool: 'eval',
   watch: useBrowserSync,
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: config.contentBase,
     open: false,
-    port: 8080,
+    port: config.dev.port,
     stats: 'errors-only',
     noInfo: true,
-    // overlay: true,
+    overlay: config.dev.overlay,
     // hot: true,
   },
   plugins: [
@@ -35,8 +34,8 @@ if (useBrowserSync) {
   module.exports.plugins.push(new BrowserSyncPlugin({
     host: 'localhost',
     port: 3000,
-    proxy: 'http://localhost:8080/',
-    open: true,
+    proxy: config.dev.proxy,
+    open: config.dev.open,
   }, {
     reload: false,
   }));

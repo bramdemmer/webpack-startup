@@ -1,7 +1,7 @@
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
-const webpack = require('webpack');
-
+const config = require('./webpack.config');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
@@ -20,7 +20,7 @@ module.exports = merge(common, {
     new UglifyJSPlugin(),
     new webpack.BannerPlugin({
       include: /\.(js|css)/,
-      banner: 'Sitename - [file]',
+      banner: config.banner,
     }),
   ],
 });

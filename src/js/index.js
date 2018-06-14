@@ -1,4 +1,5 @@
-import 'babel-runtime/regenerator'; // must be loaded first!
+import 'babel-runtime/regenerator';
+import './polyfills';
 import './assets';
 import '../scss/master.scss';
 import component from '../components/component1/component';
@@ -23,3 +24,7 @@ const fromTheFuture = async (args) => {
 
 fromTheFuture({ a: 1, b: 2 });
 
+
+console.log(Array.from(document.querySelectorAll('div')));
+
+console.log('foobar'.includes('foo'));

@@ -5,6 +5,7 @@ module.exports = {
     proxy: 'http://localhost:8080/',
     port: 8080,
     open: true,
+    overlay: true,
   },
   contentBase: path.resolve(__dirname, 'dist'),
   entry: {
@@ -17,9 +18,6 @@ module.exports = {
   css: {
     filename: './css/[name].css',
   },
-  html: {
-    name: '[name].[ext]',
-  },
   images: {
     outputPath: './images/',
   },
@@ -29,5 +27,5 @@ module.exports = {
   fonts: {
     outputPath: './fonts/',
   },
-  banner: 'Sitename - [file]',
+  banner: 'Sitename.com - [file]',
 };

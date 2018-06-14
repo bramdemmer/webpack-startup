@@ -24,6 +24,7 @@
     "browser-sync": "^2.24.4",
     "browser-sync-webpack-plugin": "^2.2.2",
     "clean-webpack-plugin": "^0.1.19",
+    "core-js": "^2.5.7",
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
     "css-url-relative-plugin": "^1.0.0",
