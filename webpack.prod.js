@@ -8,6 +8,19 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
+  module: {
+    rules: [
+      {
+        test: /\.(png|svg|jp(e*)g|gif)$/,
+        exclude: /icons/,
+        loader: 'image-webpack-loader',
+        // Specify enforce: 'pre' to apply the loader
+        // before url-loader/svg-url-loader
+        // and not duplicate it in rules with them
+        enforce: 'pre',
+      },
+    ],
+  },
   plugins: [
     new OptimizeCSSAssetsPlugin({
       cssProcessorOptions: { discardComments: { removeAll: true } },

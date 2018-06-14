@@ -6,7 +6,7 @@ Todo:
 - enable hot module reloading
 - multibrand version
 - vue integration
-- image-webpack-loader for image optimalisation in prod
+- eslint-plugin-vue for vue linting
 
 eslint rules (extra)
 ````json

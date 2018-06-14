@@ -84,16 +84,9 @@ module.exports = {
               spriteFilename: config.icons.spriteFilename,
             },
           },
-          // {
-          //   loader: 'svgo-loader',
-          //   options: {
-          //     plugins: [
-          //       { removeTitle: true },
-          //       { convertColors: { shorthex: false } },
-          //       { convertPathData: false },
-          //     ],
-          //   },
-          // },
+          {
+            loader: 'svgo-loader',
+          },
         ],
       },
       {
