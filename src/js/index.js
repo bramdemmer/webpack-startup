@@ -14,6 +14,8 @@ if (typeof component2 === 'function') {
 
 
 console.log('logged!');
+
+
 const fromTheFuture = async (args) => {
   const { a, b } = args;
   await console.log('hello form async', a, b);

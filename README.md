@@ -1,6 +1,7 @@
 # webpack-startup
 
 Todo:
+- https://github.com/lukaszblasz/aem-sync-webpack-plugin
 - create and env for browsersync.
 - SVG icons optimlisation with svgo
 - enable hot module reloading
