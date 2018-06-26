@@ -19,10 +19,27 @@ To check/test:
 - go through [all webpack loaders](https://webpack.js.org/loaders/)
 - go through [all webpack plugins](https://webpack.js.org/plugins/)
 - const HtmlCriticalPlugin = require('html-critical-webpack-plugin');
+- critical CSS
 
 Info:
 - Article on [webpack 4: mode and optimization](https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a)
 - Article on [webpack 4: Code Splitting, chunk graph and the splitChunks optimization](https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366)
+
+
+favicons:
+````javascript
+
+      {
+        test: /\.(svg|png|ico|xml|json|webmanifest)$/,
+        loader: 'file-loader',
+        include: /favicons/,
+        options: {
+          name: '[name].[ext]',
+          outputPath: './../favicons',
+        },
+      },
+````
+
 
 SVGO options to test for icons:
 

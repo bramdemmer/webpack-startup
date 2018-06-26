@@ -23,7 +23,9 @@ module.exports = merge(common, {
   },
   plugins: [
     new OptimizeCSSAssetsPlugin({
-      cssProcessorOptions: { discardComments: { removeAll: true } },
+      cssProcessorOptions: {
+        discardComments: { removeAll: true },
+      },
     }),
     new webpack.DefinePlugin({
       'process.env': {
