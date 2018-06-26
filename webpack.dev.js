@@ -40,4 +40,3 @@ if (useBrowserSync) {
     reload: false,
   }));
 }
-

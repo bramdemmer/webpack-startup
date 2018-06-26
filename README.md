@@ -1,38 +1,21 @@
 # webpack-startup
 
 Todo:
-- https://github.com/lukaszblasz/aem-sync-webpack-plugin
-- create and env for browsersync.
-- SVG icons optimlisation with svgo
-- enable hot module reloading
+- check hot module reloading
 - multibrand version
-- vue integration
-- eslint-plugin-vue for vue linting
 
-eslint rules (extra)
-````json
-"padded-blocks": "off",
-"function-paren-newline": "off",
-"max-len": "off",
-"no-use-before-define": ["error", { "functions": false, "classes": true }],
-"comma-dangle": ["error", "only-multiline"],
-"no-param-reassign": ["error", { "props": false }],
-"no-underscore-dangle": "off",
-````
+Todo VueJS Specific:
+- vue integration
+- `eslint-plugin-vue` for vue linting
+- `vue-hot-reload-api` hot module reloading for vuejs.
+
+Todo AEM Specific:
+- integrate aem-sync-webpack-plugin
 
 To check/test:
 - add url-loader for small images
-- `vue-hot-reload-api` hot module reloading for vuejs.
-- `optimization.splitChunks`
-- `optimization.runtimeChunk`
-- `optimization.noEmitOnErrors` (on by default in production mode)
-- `optimization.concatenateModules` (on by default in production mode)
-- `optimization.namedModules` (on by default in production mode)
 - Test the difference between `babel-minify-webpack-plugin` and `uglifyjs-webpack-plugin`
-- Nice error overlays https://github.com/smooth-code/error-overlay-webpack-plugin
-- add `-[hash:8]` to files.
-
-
+- Eventually add hashes `-[hash:8]` to files.
 - go through [all webpack loaders](https://webpack.js.org/loaders/)
 - go through [all webpack plugins](https://webpack.js.org/plugins/)
 
@@ -57,3 +40,54 @@ For data:
 Info:
 - Article on [webpack 4: mode and optimization](https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a)
 - Article on [webpack 4: Code Splitting, chunk graph and the splitChunks optimization](https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366)
+
+SVGO options to test for icons:
+
+````javascript
+// removeViewBox: false,
+// removeUselessStrokeAndFill: false,
+// cleanupAttrs: false,
+// removeDoctype: false,
+// cleanupAttrs: false,
+// removeDoctype: false,
+// removeXMLProcInst: false,
+// removeComments: false,
+// removeMetadata: false,
+// removeTitle: false,
+// removeDesc: false,
+// removeUselessDefs: false,
+// removeXMLNS: false,
+// removeEditorsNSData: false,
+// removeEmptyAttrs: false,
+// removeHiddenElems: false,
+// removeEmptyText: false,
+// removeEmptyContainers: false,
+// removeViewBox: false,
+// cleanupEnableBackground: false,
+// minifyStyles: false,
+// convertStyleToAttrs: false,
+// convertColors: false,
+// convertPathData: false,
+// convertTransform: false,
+// removeUnknownsAndDefaults: false,
+// removeNonInheritableGroupAttrs: false,
+// removeUselessStrokeAndFill: false,
+// removeUnusedNS: false,
+// cleanupIDs: false,
+// cleanupNumericValues: false,
+// cleanupListOfValues: false,
+// moveElemsAttrsToGroup: false,
+// moveGroupAttrsToElems: false,
+// collapseGroups: false,
+// removeRasterImages: false,
+// mergePaths: false,
+// convertShapeToPath: false,
+// sortAttrs: false,
+// removeDimensions: false,
+// removeAttrs: false,
+// removeElementsByAttr: false,
+// addClassesToSVGElement: false,
+// addAttributesToSVGElement: false,
+// removeStyleElement: false,
+// removeScriptElement: false,
+````

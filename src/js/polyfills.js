@@ -1,2 +1,2 @@
 import 'core-js/fn/string/includes';
-// import 'core-js/POLYFILL'
+// import 'svgxuse'; // enable for svg's in IE11

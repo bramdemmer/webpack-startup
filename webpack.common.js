@@ -4,6 +4,7 @@ const CssUrlRelativePlugin = require('css-url-relative-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const config = require('./webpack.config');
+
 // const webpack = require('webpack');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -86,6 +87,13 @@ module.exports = {
           },
           {
             loader: 'svgo-loader',
+            options: {
+              plugins: [
+                // { removeViewBox: true },
+                { removeTitle: true },
+                { convertPathData: false },
+              ],
+            },
           },
         ],
       },
@@ -126,7 +134,9 @@ module.exports = {
     //   template: "./src/index.html",
     //   filename: "./index.html",
     // }),
-    new SpriteLoaderPlugin(),
+    new SpriteLoaderPlugin({
+      plainSprite: true,
+    }),
     new StyleLintPlugin({
       fix: true,
     }),
