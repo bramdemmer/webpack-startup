@@ -18,24 +18,7 @@ To check/test:
 - Eventually add hashes `-[hash:8]` to files.
 - go through [all webpack loaders](https://webpack.js.org/loaders/)
 - go through [all webpack plugins](https://webpack.js.org/plugins/)
-
-
-For data:
-`npm install --save-dev cvs-loader xml-loader`
-````javascript
-{
-  test: /\.(csv|tsv)$/,
-  use: [
-    'csv-loader'
-  ]
-},
-{
-  test: /\.xml$/,
-  use: [
-    'xml-loader'
-  ]
-}
-````
+- const HtmlCriticalPlugin = require('html-critical-webpack-plugin');
 
 Info:
 - Article on [webpack 4: mode and optimization](https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a)
