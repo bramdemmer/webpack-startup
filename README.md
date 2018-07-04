@@ -3,6 +3,8 @@
 Todo:
 - check hot module reloading
 - multibrand version
+- upgrade to eslint 5.x.x when airbnb-base supports it
+
 
 Todo VueJS Specific:
 - vue integration
@@ -11,6 +13,23 @@ Todo VueJS Specific:
 
 Todo AEM Specific:
 - integrate aem-sync-webpack-plugin
+
+````javascript
+
+const AemSyncPlugin = require('aem-sync-webpack-plugin');
+
+plugins: [
+        new AemSyncPlugin({
+            targets: [
+                'http://admin:vagrant@localhost:4502',
+                'http://admin:vagrant@localhost:4503'
+            ],
+            watchDir: './',
+            exclude: '**/node_modules/**',
+            pushInterval: 1000 //ms
+        })
+    ],
+````
 
 To check/test:
 - add url-loader for small images
