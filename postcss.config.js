@@ -1,5 +1,5 @@
 module.exports = () => ({
   plugins: {
-    autoprefixer: { browsers: ['> 1%', 'last 3 versions'] },
+    autoprefixer: { browsers: ['last 2 versions', 'not ie <= 10'] },
   },
 });

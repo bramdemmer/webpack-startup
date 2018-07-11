@@ -4,7 +4,7 @@ module.exports = {
   dev: {
     proxy: 'http://localhost:8080/',
     port: 8080,
-    open: true,
+    open: false,
     overlay: true,
   },
   contentBase: path.resolve(__dirname, 'dist'),

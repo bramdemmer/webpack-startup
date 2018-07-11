@@ -1,5 +1,4 @@
-import 'babel-runtime/regenerator';
-import './polyfills';
+import 'svgxuse'; // needed for IE 11 SVG icons
 import './assets';
 import '../scss/master.scss';
 import component from '../components/component1/component';

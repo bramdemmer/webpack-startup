@@ -2,9 +2,8 @@
 
 Todo:
 - check hot module reloading
-- multibrand version
 - upgrade to eslint 5.x.x when airbnb-base supports it
-
+- upgrade babel-loader from 8.0.0-beta.4 to babel-loader version 8 stable when released.
 
 Todo VueJS Specific:
 - vue integration
@@ -13,7 +12,6 @@ Todo VueJS Specific:
 
 Todo AEM Specific:
 - integrate aem-sync-webpack-plugin
-
 ````javascript
 
 const AemSyncPlugin = require('aem-sync-webpack-plugin');
@@ -30,6 +28,9 @@ plugins: [
         })
     ],
 ````
+
+Todo multibrand:
+- create multibrand version
 
 To check/test:
 - add url-loader for small images

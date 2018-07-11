@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const config = require('./webpack.config');
 const common = require('./webpack.common');
 
@@ -12,7 +13,7 @@ module.exports = merge(common, {
   watch: useBrowserSync,
   devServer: {
     contentBase: config.contentBase,
-    open: false,
+    open: config.dev.open,
     port: config.dev.port,
     stats: 'errors-only',
     noInfo: true,
@@ -25,6 +26,7 @@ module.exports = merge(common, {
         NODE_ENV: JSON.stringify('development'),
       },
     }),
+    // new BundleAnalyzerPlugin(),
     // new webpack.HotModuleReplacementPlugin(),
     // new webpack.NamedModulesPlugin(),
   ],
