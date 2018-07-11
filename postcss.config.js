@@ -1,5 +1,9 @@
+const config = require('./webpack.config');
+
 module.exports = () => ({
   plugins: {
-    autoprefixer: { browsers: ['last 2 versions', 'not ie <= 10'] },
+    autoprefixer: {
+      browsers: config.browsers,
+    },
   },
 });

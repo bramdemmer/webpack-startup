@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+  browsers: ['last 2 versions', 'not ie <= 10'],
   dev: {
     proxy: 'http://localhost:8080/',
     port: 8080,
