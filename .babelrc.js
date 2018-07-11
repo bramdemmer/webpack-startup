@@ -8,7 +8,7 @@ module.exports = {
         targets: {
           browsers: config.browsers
         },
-        debug: true,
+        debug: config.dev.debugMode,
         useBuiltIns: "usage",
         modules: false
       }

@@ -1,7 +1,7 @@
 # webpack-startup
 
 Todo:
-- check hot module reloading
+- check hot module reloading (webpack.HotModuleReplacementPlugin)
 - upgrade to eslint 5.x.x when airbnb-base supports it
 - upgrade babel-loader from 8.0.0-beta.4 to babel-loader version 8 stable when released.
 
@@ -45,6 +45,22 @@ Info:
 - Article on [webpack 4: mode and optimization](https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a)
 - Article on [webpack 4: Code Splitting, chunk graph and the splitChunks optimization](https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366)
 
+````javascript
+// in package.json: --env.browsersync=enable
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+if (useBrowserSync) {
+  module.exports.plugins.push(new BrowserSyncPlugin({
+    host: 'localhost',
+    port: 3000,
+    proxy: config.dev.proxy,
+    open: config.dev.open,
+  }, {
+    reload: false,
+  }));
+}
+
+
+````
 
 favicons:
 ````javascript

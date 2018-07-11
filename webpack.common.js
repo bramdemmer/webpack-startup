@@ -141,7 +141,9 @@ module.exports = {
       fix: true,
     }),
     new CssUrlRelativePlugin(),
-    new CleanWebpackPlugin(config.contentBase, {}),
+    new CleanWebpackPlugin(config.contentBase, {
+      verbose: config.dev.debugMode,
+    }),
     new MiniCssExtractPlugin({
       filename: config.css.filename,
     }),

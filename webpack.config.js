@@ -3,10 +3,11 @@ const path = require('path');
 module.exports = {
   browsers: ['last 2 versions', 'not ie <= 10'],
   dev: {
-    proxy: 'http://localhost:8080/',
+    proxy: '',
     port: 8080,
-    open: false,
-    overlay: true,
+    openBrowser: true,
+    errorsInOverlay: true,
+    debugMode: false,
   },
   contentBase: path.resolve(__dirname, 'dist'),
   entry: {
