@@ -46,6 +46,7 @@ Info:
 - Article on [webpack 4: Code Splitting, chunk graph and the splitChunks optimization](https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366)
 
 ````javascript
+// npm install --save-dev browser-sync browser-sync-webpack-plugin
 // in package.json: --env.browsersync=enable
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 if (useBrowserSync) {

@@ -3,6 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CssUrlRelativePlugin = require('css-url-relative-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const config = require('./webpack.config');
 
 // const webpack = require('webpack');
@@ -149,3 +150,7 @@ module.exports = {
     }),
   ],
 };
+
+if (config.dev.debugMode) {
+  module.exports.plugins.push(new BundleAnalyzerPlugin());
+}
