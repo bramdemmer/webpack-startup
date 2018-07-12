@@ -12,8 +12,9 @@ const config = require('./webpack.config');
 module.exports = {
   entry: config.entry,
   output: {
-    filename: config.js.filename,
-    path: config.contentBase,
+    filename: config.output.filename,
+    path: config.output.path,
+    publicPath: config.output.publicPath,
   },
   module: {
     rules: [
@@ -142,7 +143,7 @@ module.exports = {
       fix: true,
     }),
     new CssUrlRelativePlugin(),
-    new CleanWebpackPlugin(config.contentBase, {
+    new CleanWebpackPlugin(config.output.path, {
       verbose: config.dev.debugMode,
     }),
     new MiniCssExtractPlugin({

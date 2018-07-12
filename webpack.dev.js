@@ -7,15 +7,17 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval',
   devServer: {
-    contentBase: config.contentBase,
+    contentBase: config.dev.contentBase,
+    publicPath: config.dev.publicPath,
     open: config.dev.openBrowser,
     port: config.dev.port,
     stats: config.dev.debugMode ? 'normal' : 'minimal',
     useLocalIp: true,
     host: '0.0.0.0',
     overlay: config.dev.errorsInOverlay,
+    watchContentBase: true, // = wacth static content
+    hot: config.dev.useHMR,
     // historyApiFallback: true,
-    // hot: true,
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -23,7 +25,7 @@ module.exports = merge(common, {
         NODE_ENV: JSON.stringify('development'),
       },
     }),
-    // new webpack.HotModuleReplacementPlugin(),
-    // new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(), // = for better console message regarding HMR
   ],
 });
