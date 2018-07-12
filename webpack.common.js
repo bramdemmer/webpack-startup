@@ -14,7 +14,7 @@ module.exports = {
   output: {
     filename: config.output.filename,
     path: config.output.path,
-    publicPath: config.output.publicPath,
+    // publicPath: config.output.publicPath,
   },
   module: {
     rules: [
