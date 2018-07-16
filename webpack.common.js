@@ -5,7 +5,6 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const config = require('./webpack.config');
-
 // const webpack = require('webpack');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -14,7 +13,7 @@ module.exports = {
   output: {
     filename: config.output.filename,
     path: config.output.path,
-    // publicPath: config.output.publicPath,
+    publicPath: config.output.publicPath,
   },
   module: {
     rules: [

@@ -2,7 +2,7 @@
 
 Todo:
 - check hot module reloading (webpack.HotModuleReplacementPlugin)
-- fix the global publicPath and make it work with background images in CSS.
+- check if the global public path still works with different folder structure. Otherwise disable it.
 - upgrade to eslint 5.x.x when airbnb-base supports it
 - upgrade babel-loader from 8.0.0-beta.4 to babel-loader version 8 stable when released.
 

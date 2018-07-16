@@ -6,14 +6,14 @@ module.exports = {
     // assets: ['./src/scripts/assets.js'],
   },
   output: {
-    path: path.resolve(__dirname, 'app/dist'), // needs to be an absolute location
+    path: path.resolve(__dirname, 'app/dist'), // This needs to be an absolute location
+    publicPath: 'dist/',
     filename: 'js/[name].js',
-    publicPath: '/dist/', // don't forget the / at the end and at the start or it won't work!
   },
   browsers: ['last 2 versions', 'not ie <= 10'],
   dev: {
-    publicPath: '/dist/', // don't forget the / at the end and at the start or it won't work!
-    contentBase: path.resolve(__dirname, 'app'), // server content base location
+    publicPath: '/dist/', // Must have a / at the start and the end of the path
+    contentBase: path.resolve(__dirname, 'app'), // The server content base location
     proxy: '',
     port: 8080,
     openBrowser: false,
