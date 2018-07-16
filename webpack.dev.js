@@ -15,7 +15,7 @@ module.exports = merge(common, {
     useLocalIp: true,
     host: '0.0.0.0',
     overlay: config.dev.errorsInOverlay,
-    watchContentBase: true, // = wacth static content
+    watchContentBase: true,
     hot: config.dev.useHMR,
     // historyApiFallback: true,
   },
@@ -26,6 +26,6 @@ module.exports = merge(common, {
       },
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(), // = for better console message regarding HMR
+    new webpack.NamedModulesPlugin(), // = for better HMR console messages
   ],
 });
