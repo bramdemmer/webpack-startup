@@ -3,11 +3,12 @@ const merge = require('webpack-merge');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common');
-const config = require('./webpack.config');
+// const config = require('./webpack.config');
 
 
 module.exports = merge(common, {
   mode: 'production',
+  devtool: 'none',
   module: {
     rules: [
       {
@@ -33,9 +34,5 @@ module.exports = merge(common, {
       },
     }),
     new UglifyJSPlugin(),
-    new webpack.BannerPlugin({
-      include: /\.(js|css)/,
-      banner: config.banner,
-    }),
   ],
 });

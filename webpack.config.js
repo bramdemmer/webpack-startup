@@ -33,5 +33,4 @@ module.exports = {
   fonts: {
     outputPath: 'fonts/',
   },
-  banner: 'Sitename.com - [file]',
 };

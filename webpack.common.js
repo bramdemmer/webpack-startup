@@ -46,20 +46,20 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
+              sourceMap: process.env.NODE_ENV === 'development',
               importLoaders: 1,
             },
           },
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: 'inline',
+              sourceMap: process.env.NODE_ENV === 'development' ? 'inline' : false,
             },
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true,
+              sourceMap: process.env.NODE_ENV === 'development',
             },
           },
         ],
