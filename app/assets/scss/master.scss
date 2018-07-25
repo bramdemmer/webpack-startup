@@ -1,14 +1,5 @@
-@import "~node-normalize-scss/_normalize.scss"; // node modules start with ~
 @import 'defaults';
-
-@font-face {
-  font-family: roboto;
-  src:
-    url('../fonts/roboto-regular.woff2') format('woff2'),
-    url('../fonts/roboto-regular.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-}
+@import "~node-normalize-scss/_normalize.scss"; // node modules start with ~
 
 body {
   background-image: url('../images/png.png');
