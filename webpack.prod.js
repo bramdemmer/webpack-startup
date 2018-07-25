@@ -33,6 +33,15 @@ module.exports = merge(common, {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
-    new UglifyJSPlugin(),
+    new UglifyJSPlugin({
+      uglifyOptions: {
+        output: {
+          comments: false,
+        },
+        compress: {
+          drop_console: true,
+        },
+      },
+    }),
   ],
 });
