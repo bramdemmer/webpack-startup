@@ -151,6 +151,6 @@ module.exports = {
   ],
 };
 
-if (config.dev.debugMode) {
+if (config.dev.openBundleAnalyser) {
   module.exports.plugins.push(new BundleAnalyzerPlugin());
 }

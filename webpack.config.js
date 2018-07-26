@@ -20,6 +20,16 @@ module.exports = {
     errorsInOverlay: true,
     debugMode: false,
     useHMR: true,
+    openBundleAnalyser: false,
+    // aem: {
+    //   enabled: false,
+    //   targets: [
+    //     'http://admin:admin@localhost:4502',
+    //     'http://admin:admin@localhost:4503',
+    //   ],
+    //   watchDir: './app',
+    //   exclude: '**/node_modules/**',
+    // },
   },
   css: {
     filename: 'css/[name].css',

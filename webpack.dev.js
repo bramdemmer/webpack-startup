@@ -29,3 +29,11 @@ module.exports = merge(common, {
     new webpack.NamedModulesPlugin(), // = for better HMR console messages
   ],
 });
+
+// if (config.dev.aem.enabled) {
+//   module.exports.plugins.push(new AemSyncPlugin({
+//     targets: config.dev.aem.targets,
+//     watchDir: config.dev.aem.watchDir,
+//     exclude: config.dev.aem.exclude,
+//   }));
+// }

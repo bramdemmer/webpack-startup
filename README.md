@@ -12,23 +12,11 @@ Todo VueJS Specific:
 - `vue-hot-reload-api` hot module reloading for vuejs.
 
 Todo AEM Specific:
-- integrate aem-sync-webpack-plugin
-````javascript
-
-const AemSyncPlugin = require('aem-sync-webpack-plugin');
-
-plugins: [
-        new AemSyncPlugin({
-            targets: [
-                'http://admin:vagrant@localhost:4502',
-                'http://admin:vagrant@localhost:4503'
-            ],
-            watchDir: './',
-            exclude: '**/node_modules/**',
-            pushInterval: 1000 //ms
-        })
-    ],
-````
+- make the plugin work. Apparently not working with webpack-dev-server. Also needs --watch argument. To test!
+- check: https://github.com/infielddigital/aem-webpack-example/issues/16
+- check: https://github.com/infielddigital/aem-webpack-example
+- check: aem front: https://kevinw.de/aem-front/
+- https://www.youtube.com/watch?v=uvett3sZlko
 
 Todo multibrand:
 - create multibrand version
@@ -41,28 +29,6 @@ To check/test:
 - go through [all webpack plugins](https://webpack.js.org/plugins/)
 - const HtmlCriticalPlugin = require('html-critical-webpack-plugin');
 - critical CSS
-
-Info:
-- Article on [webpack 4: mode and optimization](https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a)
-- Article on [webpack 4: Code Splitting, chunk graph and the splitChunks optimization](https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366)
-
-````javascript
-// npm install --save-dev browser-sync browser-sync-webpack-plugin
-// in package.json: --env.browsersync=enable
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-if (useBrowserSync) {
-  module.exports.plugins.push(new BrowserSyncPlugin({
-    host: 'localhost',
-    port: 3000,
-    proxy: config.dev.proxy,
-    open: config.dev.open,
-  }, {
-    reload: false,
-  }));
-}
-
-
-````
 
 favicons:
 ````javascript
