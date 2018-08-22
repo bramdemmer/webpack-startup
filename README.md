@@ -3,7 +3,6 @@
 Todo:
 - check hot module reloading (webpack.HotModuleReplacementPlugin)
 - check if the global public path still works with different folder structure. Otherwise disable it.
-- upgrade to eslint 5.x.x when airbnb-base supports it
 - upgrade babel-loader from 8.0.0-beta.4 to babel-loader version 8 stable when released.
 
 Todo VueJS Specific:
@@ -42,56 +41,4 @@ favicons:
           outputPath: './../favicons',
         },
       },
-````
-
-
-SVGO options to test for icons:
-
-````javascript
-// removeViewBox: false,
-// removeUselessStrokeAndFill: false,
-// cleanupAttrs: false,
-// removeDoctype: false,
-// cleanupAttrs: false,
-// removeDoctype: false,
-// removeXMLProcInst: false,
-// removeComments: false,
-// removeMetadata: false,
-// removeTitle: false,
-// removeDesc: false,
-// removeUselessDefs: false,
-// removeXMLNS: false,
-// removeEditorsNSData: false,
-// removeEmptyAttrs: false,
-// removeHiddenElems: false,
-// removeEmptyText: false,
-// removeEmptyContainers: false,
-// removeViewBox: false,
-// cleanupEnableBackground: false,
-// minifyStyles: false,
-// convertStyleToAttrs: false,
-// convertColors: false,
-// convertPathData: false,
-// convertTransform: false,
-// removeUnknownsAndDefaults: false,
-// removeNonInheritableGroupAttrs: false,
-// removeUselessStrokeAndFill: false,
-// removeUnusedNS: false,
-// cleanupIDs: false,
-// cleanupNumericValues: false,
-// cleanupListOfValues: false,
-// moveElemsAttrsToGroup: false,
-// moveGroupAttrsToElems: false,
-// collapseGroups: false,
-// removeRasterImages: false,
-// mergePaths: false,
-// convertShapeToPath: false,
-// sortAttrs: false,
-// removeDimensions: false,
-// removeAttrs: false,
-// removeElementsByAttr: false,
-// addClassesToSVGElement: false,
-// addAttributesToSVGElement: false,
-// removeStyleElement: false,
-// removeScriptElement: false,
 ````
