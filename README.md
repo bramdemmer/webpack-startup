@@ -1,9 +1,11 @@
 # webpack-startup
 
-Todo:
+Todo General:
+- Replace Sass with post-css only. CSS vars etc..
+
+Todo webpack:
 - check hot module reloading (webpack.HotModuleReplacementPlugin)
 - check if the global public path still works with different folder structure. Otherwise disable it.
-- upgrade babel-loader from 8.0.0-beta.x to babel-loader version 8 stable when released.
 
 Todo VueJS Specific:
 - vue integration
