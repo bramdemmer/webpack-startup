@@ -2,6 +2,7 @@
 
 Todo General:
 - Replace Sass with post-css only. CSS vars etc..
+- create a different vue CLI version
 
 Todo webpack:
 - check hot module reloading (webpack.HotModuleReplacementPlugin)
