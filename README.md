@@ -2,6 +2,7 @@
 
 Todo General:
 - Replace Sass with post-css only. CSS vars etc..
+see this design system https://medium.com/codyhouse/create-your-design-system-part-1-typography-7c630d9092bd
 - create a different vue CLI version
 
 Todo webpack:
