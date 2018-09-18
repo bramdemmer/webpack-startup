@@ -149,6 +149,11 @@ module.exports = {
       filename: config.css.filename,
     }),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
 };
 
 if (config.dev.openBundleAnalyser) {
