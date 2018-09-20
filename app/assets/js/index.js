@@ -10,9 +10,7 @@ if (typeof component2 === 'function') {
   console.log(typeof component2);
 }
 
-
 console.log('logged!');
-
 
 const fromTheFuture = async (args) => {
   const { a, b } = args;

@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    main: ['./app/assets/js/index.js'],
+    main: ['@babel/polyfill', './app/assets/js/index.js'],
     // assets: ['./src/scripts/assets.js'],
   },
   output: {
