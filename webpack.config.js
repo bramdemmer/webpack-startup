@@ -15,21 +15,22 @@ module.exports = {
     publicPath: '/dist/', // Must have a / at the start and the end of the path
     contentBase: path.resolve(__dirname, 'app'), // The server content base location
     proxy: '',
+    host: '0.0.0.0',
     port: 8080,
     openBrowser: false,
     errorsInOverlay: true,
     debugMode: false,
     useHMR: true,
     openBundleAnalyser: false,
-    // aem: {
-    //   enabled: false,
-    //   targets: [
-    //     'http://admin:admin@localhost:4502',
-    //     'http://admin:admin@localhost:4503',
-    //   ],
-    //   watchDir: './app',
-    //   exclude: '**/node_modules/**',
-    // },
+    aem: {
+      enabled: true,
+      targets: [
+        'http://admin:admin@localhost:4502',
+        'http://admin:admin@localhost:4503',
+      ],
+      watchDir: './app',
+      exclude: '**/node_modules/**',
+    },
   },
   css: {
     filename: 'css/[name].css',

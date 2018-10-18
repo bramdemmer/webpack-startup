@@ -1,7 +1,10 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+// const AEMClientlibWebpackPlugin = require('aem-clientlib-webpack-plugin').default;
+const WriteFileWebpackPlugin = require('write-file-webpack-plugin');
 const config = require('./webpack.config');
 const common = require('./webpack.common');
+// const clientlib = require('./clientlib.config.js');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -13,7 +16,7 @@ module.exports = merge(common, {
     port: config.dev.port,
     stats: config.dev.debugMode ? 'normal' : 'minimal',
     useLocalIp: true,
-    host: '0.0.0.0',
+    host: config.dev.host,
     overlay: config.dev.errorsInOverlay,
     watchContentBase: true,
     hot: config.dev.useHMR,
@@ -30,10 +33,10 @@ module.exports = merge(common, {
   ],
 });
 
-// if (config.dev.aem.enabled) {
-//   module.exports.plugins.push(new AemSyncPlugin({
-//     targets: config.dev.aem.targets,
-//     watchDir: config.dev.aem.watchDir,
-//     exclude: config.dev.aem.exclude,
-//   }));
-// }
+if (config.dev.aem.enabled) {
+  console.log('logged!');
+  module.exports.plugins.push(
+    // new AEMClientlibWebpackPlugin(clientlib),
+    new WriteFileWebpackPlugin(), // writes down files so that aem can use it.
+  );
+}
