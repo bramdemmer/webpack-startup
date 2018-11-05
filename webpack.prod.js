@@ -2,8 +2,9 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const common = require('./webpack.common');
-// const config = require('./webpack.config');
+const config = require('./webpack.config');
 
 
 module.exports = merge(common, {
@@ -45,3 +46,12 @@ module.exports = merge(common, {
     }),
   ],
 });
+
+
+if (config.dev.debugMode) {
+  console.log('DEBUG MODE: Enabled.');
+  module.exports.plugins.push(new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+    reportFilename: 'webpack-bundle-report.html',
+  }));
+}

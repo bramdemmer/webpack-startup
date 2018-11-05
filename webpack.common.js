@@ -3,7 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CssUrlRelativePlugin = require('css-url-relative-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const path = require('path');
 
 const config = require('./webpack.config');
 
@@ -14,7 +14,7 @@ module.exports = {
   entry: config.entry,
   output: {
     filename: config.output.filename,
-    path: config.output.path,
+    path: path.resolve(__dirname, config.output.path),
     publicPath: config.output.publicPath,
   },
   resolve: {
@@ -70,7 +70,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|jp(e*)g|gif)$/,
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
         exclude: /icons/,
         use: [{
           loader: 'file-loader',
@@ -81,7 +81,7 @@ module.exports = {
         }],
       },
       {
-        test: /\.svg$/,
+        test: /\.svg$/i,
         include: /icons/,
         use: [
           {
@@ -95,7 +95,6 @@ module.exports = {
             loader: 'svgo-loader',
             options: {
               plugins: [
-                // { removeViewBox: true },
                 { removeTitle: true },
                 { convertPathData: false },
               ],
@@ -104,7 +103,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: /\.(ttf|eot|woff2?)$/i,
         use: [{
           loader: 'file-loader',
           options: {
@@ -147,7 +146,7 @@ module.exports = {
       fix: true,
     }),
     new CssUrlRelativePlugin(),
-    new CleanWebpackPlugin(config.output.path, {
+    new CleanWebpackPlugin(path.resolve(__dirname, config.output.path), {
       verbose: config.dev.debugMode,
     }),
     new MiniCssExtractPlugin({
@@ -160,7 +159,3 @@ module.exports = {
     },
   },
 };
-
-if (config.dev.openBundleAnalyser) {
-  module.exports.plugins.push(new BundleAnalyzerPlugin());
-}

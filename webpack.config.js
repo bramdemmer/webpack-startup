@@ -1,4 +1,3 @@
-const path = require('path');
 require('dotenv').config();
 
 module.exports = {
@@ -7,7 +6,7 @@ module.exports = {
     // assets: ['./src/scripts/assets.js'],
   },
   output: {
-    path: path.resolve(__dirname, 'app/dist'), // This needs to be an absolute location
+    path: 'app/dist',
     publicPath: 'dist/',
     filename: 'js/[name].js',
   },
@@ -28,15 +27,15 @@ module.exports = {
   },
   dev: {
     publicPath: '/dist/', // Must have a / at the start and the end of the path
-    contentBase: path.resolve(__dirname, 'app'), // The server content base location
-    proxy: '',
+    contentBase: 'app', // The server content base location
+    proxy: process.env.PROXY || '',
     host: process.env.DEV_HOST || '0.0.0.0',
     port: process.env.DEV_PORT || 8080,
-    openBrowser: false,
-    errorsInOverlay: true,
-    debugMode: false,
+    openBrowser: process.env.OPEN_BROWSER || false,
+    errorsInOverlay: process.env.ERRORS_IN_OVERLAY || true,
     useHMR: true,
-    openBundleAnalyser: false,
+    debugMode: false,
+    desktopNotifications: process.env.DESKTOP_NOTIFICATIONS || true,
     aem: {
       enabled: true,
       targets: process.env.AEM_TARGETS || ['http://admin:admin@localhost:4502', 'http://admin:admin@localhost:4503'],
