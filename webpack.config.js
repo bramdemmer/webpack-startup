@@ -1,4 +1,5 @@
 const path = require('path');
+require('dotenv').config();
 
 module.exports = {
   entry: {
@@ -11,27 +12,6 @@ module.exports = {
     filename: 'js/[name].js',
   },
   browsers: ['last 2 versions', 'not ie <= 10'],
-  dev: {
-    publicPath: '/dist/', // Must have a / at the start and the end of the path
-    contentBase: path.resolve(__dirname, 'app'), // The server content base location
-    proxy: '',
-    host: '0.0.0.0',
-    port: 8080,
-    openBrowser: false,
-    errorsInOverlay: true,
-    debugMode: false,
-    useHMR: true,
-    openBundleAnalyser: false,
-    aem: {
-      enabled: true,
-      targets: [
-        'http://admin:admin@localhost:4502',
-        'http://admin:admin@localhost:4503',
-      ],
-      watchDir: './app',
-      exclude: '**/node_modules/**',
-    },
-  },
   css: {
     filename: 'css/[name].css',
   },
@@ -43,5 +23,25 @@ module.exports = {
   },
   fonts: {
     outputPath: 'fonts/',
+  },
+  alias: {
+  },
+  dev: {
+    publicPath: '/dist/', // Must have a / at the start and the end of the path
+    contentBase: path.resolve(__dirname, 'app'), // The server content base location
+    proxy: '',
+    host: process.env.DEV_HOST || '0.0.0.0',
+    port: process.env.DEV_PORT || 8080,
+    openBrowser: false,
+    errorsInOverlay: true,
+    debugMode: false,
+    useHMR: true,
+    openBundleAnalyser: false,
+    aem: {
+      enabled: true,
+      targets: process.env.AEM_TARGETS || ['http://admin:admin@localhost:4502', 'http://admin:admin@localhost:4503'],
+      watchDir: './app',
+      exclude: '**/node_modules/**',
+    },
   },
 };

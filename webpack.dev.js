@@ -4,7 +4,7 @@ const merge = require('webpack-merge');
 const WriteFileWebpackPlugin = require('write-file-webpack-plugin');
 const config = require('./webpack.config');
 const common = require('./webpack.common');
-// const clientlib = require('./clientlib.config.js');
+
 
 module.exports = merge(common, {
   mode: 'development',
@@ -34,7 +34,8 @@ module.exports = merge(common, {
 });
 
 if (config.dev.aem.enabled) {
-  console.log('logged!');
+  console.log('AEM version enabled.');
+  // const clientlib = require('./clientlib.config.js');
   module.exports.plugins.push(
     // new AEMClientlibWebpackPlugin(clientlib),
     new WriteFileWebpackPlugin(), // writes down files so that aem can use it.
