@@ -37,7 +37,7 @@ module.exports = {
     debugMode: false,
     desktopNotifications: process.env.DESKTOP_NOTIFICATIONS || true,
     aem: {
-      enabled: true,
+      enabled: false,
       targets: process.env.AEM_TARGETS || ['http://admin:admin@localhost:4502', 'http://admin:admin@localhost:4503'],
       watchDir: './app',
       exclude: '**/node_modules/**',

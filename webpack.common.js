@@ -4,11 +4,9 @@ const CssUrlRelativePlugin = require('css-url-relative-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const path = require('path');
-
-const config = require('./webpack.config');
-
-// const webpack = require('webpack');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
+const config = require('./webpack.config');
 
 module.exports = {
   entry: config.entry,
@@ -32,7 +30,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/,
+        test: /\.(js|vue)$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
         enforce: 'pre',
@@ -43,8 +41,15 @@ module.exports = {
         },
       },
       {
+        test: /\.vue$/,
+        use: 'vue-loader',
+      },
+      {
         test: /\.(sa|sc|c)ss$/,
         use: [
+          {
+            loader: 'vue-style-loader',
+          },
           {
             loader: MiniCssExtractPlugin.loader,
           },
@@ -136,9 +141,11 @@ module.exports = {
   },
   plugins: [
     // new HtmlWebpackPlugin({
-    //   template: "./src/index.html",
-    //   filename: "./index.html",
+    //   template: './app/vue/vue-index.html',
+    //   filename: './vue-index.html',
+    //   inject: true,
     // }),
+    new VueLoaderPlugin(),
     new SpriteLoaderPlugin({
       plainSprite: true,
     }),
@@ -156,6 +163,7 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
+      name: 'vendors',
     },
   },
 };

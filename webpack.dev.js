@@ -21,7 +21,6 @@ module.exports = merge(common, {
     overlay: config.dev.errorsInOverlay,
     watchContentBase: true,
     hot: config.dev.useHMR,
-    // historyApiFallback: true,
   },
   plugins: [
     new webpack.DefinePlugin({
