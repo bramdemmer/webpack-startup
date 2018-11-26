@@ -34,7 +34,7 @@ module.exports = {
     openBrowser: process.env.OPEN_BROWSER || false,
     errorsInOverlay: process.env.ERRORS_IN_OVERLAY || true,
     useHMR: true,
-    debugMode: false,
+    debugMode: process.env.DEBUG_MODE || false,
     desktopNotifications: process.env.DESKTOP_NOTIFICATIONS || true,
     aem: {
       enabled: false,
