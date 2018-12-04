@@ -1,11 +1,12 @@
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CssUrlRelativePlugin = require('css-url-relative-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
-const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const config = require('./webpack.config');
 
 module.exports = {
@@ -86,28 +87,6 @@ module.exports = {
         }],
       },
       {
-        test: /\.svg$/i,
-        include: /icons/,
-        use: [
-          {
-            loader: 'svg-sprite-loader',
-            options: {
-              extract: true,
-              spriteFilename: config.icons.spriteFilename,
-            },
-          },
-          {
-            loader: 'svgo-loader',
-            options: {
-              plugins: [
-                { removeTitle: true },
-                { convertPathData: false },
-              ],
-            },
-          },
-        ],
-      },
-      {
         test: /\.(ttf|eot|woff2?)$/i,
         use: [{
           loader: 'file-loader',
@@ -146,8 +125,13 @@ module.exports = {
     //   inject: true,
     // }),
     new VueLoaderPlugin(),
-    new SpriteLoaderPlugin({
-      plainSprite: true,
+    new SVGSpritemapPlugin(config.icons.filesLocation, {
+      sprite: {
+        prefix: false,
+      },
+      output: {
+        filename: config.icons.spriteFilename,
+      },
     }),
     new StyleLintPlugin({
       fix: true,

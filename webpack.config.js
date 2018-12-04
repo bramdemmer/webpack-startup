@@ -1,23 +1,24 @@
 require('dotenv').config();
 
 module.exports = {
+  browsers: ['last 2 versions', 'not ie <= 10'],
   entry: {
     main: ['@babel/polyfill', './app/assets/js/index.js'],
-    // assets: ['./src/scripts/assets.js'],
   },
   output: {
     path: 'app/dist',
     publicPath: 'dist/',
     filename: 'js/[name].js',
   },
-  browsers: ['last 2 versions', 'not ie <= 10'],
   css: {
     filename: 'css/[name].css',
   },
   images: {
+    filesLocation: './app/assets/images/',
     outputPath: 'images/',
   },
   icons: {
+    filesLocation: ['./app/**/icons/*.svg'],
     spriteFilename: 'icons/icons.svg',
   },
   fonts: {

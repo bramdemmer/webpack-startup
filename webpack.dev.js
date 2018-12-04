@@ -1,8 +1,9 @@
 const webpack = require('webpack');
+const path = require('path');
 const merge = require('webpack-merge');
 const WriteFileWebpackPlugin = require('write-file-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
-const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = require('./webpack.config');
 const common = require('./webpack.common');
@@ -31,6 +32,10 @@ module.exports = merge(common, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // = for better HMR console messages
 
+    new CopyWebpackPlugin([{
+      from: config.images.filesLocation,
+      to: config.images.outputPath,
+    }]),
   ],
 });
 

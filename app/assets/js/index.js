@@ -1,10 +1,15 @@
 import 'svgxuse'; // needed for IE 11 SVG icons
-import './assets';
 import '../scss/master.scss';
 import component from '../components/component1/component';
 import component2 from '../components/component2/component';
 
+// require.context('../images/', true, /\.(png|svg|jp(e*)g|gif)$/);
+// require.context('../fonts/', true, /\.(woff|woff2|eot|ttf|otf)$/);
+// require.context('../favicons/', true, /\.(svg|png|ico|xml|json|webmanifest)$/);
+
+
 document.body.appendChild(component());
+
 
 if (typeof component2 === 'function') {
   console.log(typeof component2);

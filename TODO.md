@@ -9,6 +9,7 @@ see this design system https://medium.com/codyhouse/create-your-design-system-pa
 Todo webpack:
 - check hot module reloading (webpack.HotModuleReplacementPlugin)
 - check if the global public path still works with different folder structure. Otherwise disable it.
+- remove unused packages in package.json
 
 Todo VueJS Specific:
 - vue integration

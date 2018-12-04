@@ -3,26 +3,15 @@ const merge = require('webpack-merge');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 const common = require('./webpack.common');
 const config = require('./webpack.config');
-
 
 module.exports = merge(common, {
   mode: 'production',
   devtool: 'none',
-  module: {
-    rules: [
-      {
-        test: /\.(png|svg|jp(e*)g|gif)$/,
-        exclude: /icons/,
-        loader: 'image-webpack-loader',
-        // Specify enforce: 'pre' to apply the loader
-        // before url-loader/svg-url-loader
-        // and not duplicate it in rules with them
-        enforce: 'pre',
-      },
-    ],
-  },
   plugins: [
     new OptimizeCSSAssetsPlugin({
       cssProcessorOptions: {
@@ -44,6 +33,11 @@ module.exports = merge(common, {
         },
       },
     }),
+    new CopyWebpackPlugin([{
+      from: config.images.filesLocation,
+      to: config.images.outputPath,
+    }]),
+    new ImageminPlugin({ test: /\.(png|jpe?g|gif|svg|webp)$/i }),
   ],
 });
 
