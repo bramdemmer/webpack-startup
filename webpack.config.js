@@ -18,7 +18,7 @@ module.exports = {
     outputPath: 'images/',
   },
   icons: {
-    filesLocation: ['./app/**/icons/*.svg'],
+    filesLocation: './app/**/icons/*.svg',
     spriteFilename: 'icons/icons.svg',
   },
   fonts: {
@@ -33,15 +33,15 @@ module.exports = {
     host: process.env.DEV_HOST || '0.0.0.0',
     port: process.env.DEV_PORT || 8080,
     openBrowser: process.env.OPEN_BROWSER || false,
-    errorsInOverlay: process.env.ERRORS_IN_OVERLAY || true,
+    errorsInBrowserOverlay: process.env.ERRORS_IN_BROWSER_OVERLAY || true,
     useHMR: true,
     debugMode: process.env.DEBUG_MODE || false,
     desktopNotifications: process.env.DESKTOP_NOTIFICATIONS || true,
-    aem: {
-      enabled: false,
-      targets: process.env.AEM_TARGETS || ['http://admin:admin@localhost:4502', 'http://admin:admin@localhost:4503'],
-      watchDir: './app',
-      exclude: '**/node_modules/**',
-    },
+  },
+  aem: {
+    enabled: true,
+    targets: process.env.AEM_TARGETS || ['http://admin:admin@localhost:4502', 'http://admin:admin@localhost:4503'],
+    watchDir: './app',
+    exclude: '**/node_modules/**',
   },
 };

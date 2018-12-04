@@ -19,7 +19,7 @@ module.exports = merge(common, {
     stats: config.dev.debugMode ? 'normal' : 'minimal',
     useLocalIp: true,
     host: config.dev.host,
-    overlay: config.dev.errorsInOverlay,
+    overlay: config.dev.errorsInBrowserOverlay,
     watchContentBase: true,
     hot: config.dev.useHMR,
   },
@@ -30,8 +30,7 @@ module.exports = merge(common, {
       },
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(), // = for better HMR console messages
-
+    new webpack.NamedModulesPlugin(), // for better HMR console messages
     new CopyWebpackPlugin([{
       from: config.images.filesLocation,
       to: config.images.outputPath,
@@ -45,12 +44,13 @@ if (config.dev.desktopNotifications) {
       title: 'Webpack',
       excludeWarnings: true,
       alwaysNotify: true,
+      appId: 'This message is not displayed',
     }),
   );
 }
 
-if (config.dev.aem.enabled) {
-  console.log('AEM SUPPORT: enabled.');
+if (config.aem.enabled) {
+  console.info('AEM SUPPORT: ✔️');
   // const AEMClientlibWebpackPlugin = require('aem-clientlib-webpack-plugin').default;
   // const clientlib = require('./clientlib.config.js');
   module.exports.plugins.push(
