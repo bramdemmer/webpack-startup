@@ -18,7 +18,7 @@ module.exports = {
     outputPath: 'images/',
   },
   icons: {
-    filesLocation: './app/**/icons/*.svg',
+    filesLocation: './app/assets/**/icons/*.svg',
     spriteFilename: 'icons/icons.svg',
   },
   fonts: {
@@ -31,7 +31,7 @@ module.exports = {
     contentBase: 'app', // The server content base location
     proxy: process.env.PROXY || '',
     host: process.env.DEV_HOST || '0.0.0.0',
-    port: process.env.DEV_PORT || 8080,
+    port: process.env.DEV_PORT || 8081,
     openBrowser: process.env.OPEN_BROWSER || false,
     errorsInBrowserOverlay: process.env.ERRORS_IN_BROWSER_OVERLAY || true,
     useHMR: true,
