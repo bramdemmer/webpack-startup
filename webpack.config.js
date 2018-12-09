@@ -25,6 +25,7 @@ module.exports = {
     outputPath: 'fonts/',
   },
   alias: {
+    vue$: 'vue/dist/vue.esm.js',
   },
   dev: {
     publicPath: '/dist/', // Must have a / at the start and the end of the path
@@ -36,7 +37,7 @@ module.exports = {
     errorsInBrowserOverlay: process.env.ERRORS_IN_BROWSER_OVERLAY || true,
     useHMR: true,
     debugMode: process.env.DEBUG_MODE || false,
-    desktopNotifications: process.env.DESKTOP_NOTIFICATIONS || true,
+    desktopNotifications: process.env.DESKTOP_NOTIFICATIONS || false,
   },
   aem: {
     enabled: true,
