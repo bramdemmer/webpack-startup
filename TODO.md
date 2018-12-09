@@ -1,5 +1,6 @@
 
 Todo General:
+- add 'flatten: true' to copy webpack plugin options
 - deal with relative paths and aliases. check: https://github.com/storybooks/storybook/issues/3339
 - fix css hot module reloading
 - Replace Sass with post-css only. CSS vars etc..
