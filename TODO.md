@@ -1,17 +1,15 @@
 
 Todo General:
-- include prettier : https://prettier.io/docs/en/eslint.html
+- deal with relative paths and aliases
+- fix css hot module reloading
 - Replace Sass with post-css only. CSS vars etc..
 see this design system https://medium.com/codyhouse/create-your-design-system-part-1-typography-7c630d9092bd
 - create a different vue CLI version
 - more about code splitting: https://hackernoon.com/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
-
-Todo webpack:
-- check hot module reloading (webpack.HotModuleReplacementPlugin)
 - check if the global public path still works with different folder structure. Otherwise disable it.
 - remove unused packages in package.json
 
-Todo VueJS Specific:
+To check VueJS Specific:
 - vue integration
 - `eslint-plugin-vue` for vue linting
 - `vue-hot-reload-api` hot module reloading for vuejs.
@@ -27,6 +25,7 @@ Todo multibrand:
 - create multibrand version
 
 To check/test:
+- include prettier : https://prettier.io/docs/en/eslint.html
 - add url-loader for small images
 - Test the difference between `babel-minify-webpack-plugin` and `uglifyjs-webpack-plugin`
 - Eventually add hashes `-[hash:8]` to files.

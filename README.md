@@ -1,6 +1,6 @@
 # webpack-startup
 
-Frontend build system startup project.
+Frontend build system with webpack
 
 install nvm globally on your machine and make sure to use the latest LTS version of node when using this repo.
 
