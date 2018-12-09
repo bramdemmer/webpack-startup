@@ -1,6 +1,6 @@
 
 Todo General:
-- deal with relative paths and aliases
+- deal with relative paths and aliases. check: https://github.com/storybooks/storybook/issues/3339
 - fix css hot module reloading
 - Replace Sass with post-css only. CSS vars etc..
 see this design system https://medium.com/codyhouse/create-your-design-system-part-1-typography-7c630d9092bd
