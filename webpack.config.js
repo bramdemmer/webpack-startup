@@ -28,8 +28,8 @@ module.exports = {
     vue$: 'vue/dist/vue.esm.js',
   },
   dev: {
-    publicPath: '/dist/', // Must have a / at the start and the end of the path
-    contentBase: 'app', // The server content base location
+    publicPath: '/dist/', // Make sure devServer.publicPath always starts and ends with a forward slash.
+    contentBase: 'app', // The server content base location. It is recommended to use an absolute path.
     proxy: process.env.PROXY || '',
     host: process.env.DEV_HOST || '0.0.0.0',
     port: process.env.DEV_PORT || 8081,
