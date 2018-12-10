@@ -34,6 +34,7 @@ module.exports = merge(common, {
     new CopyWebpackPlugin([{
       from: config.images.filesLocation,
       to: config.images.outputPath,
+      flatten: true,
     }]),
   ],
 });
@@ -43,8 +44,8 @@ if (config.dev.desktopNotifications) {
     new WebpackNotifierPlugin({
       title: 'Webpack',
       excludeWarnings: true,
-      alwaysNotify: true,
-      appId: 'This message is not displayed',
+      alwaysNotify: false,
+      skipFirstNotification: true,
     }),
   );
 }

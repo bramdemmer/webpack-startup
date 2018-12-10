@@ -9,6 +9,7 @@ see this design system https://medium.com/codyhouse/create-your-design-system-pa
 - more about code splitting: https://hackernoon.com/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
 - check if the global public path still works with different folder structure. Otherwise disable it.
 - remove unused packages in package.json
+- check if     // new webpack.optimize.ModuleConcatenationPlugin(), helps create smaller bundle size with lots of JS.
 
 To check VueJS Specific:
 - vue integration

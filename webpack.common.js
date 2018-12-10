@@ -5,6 +5,7 @@ const CssUrlRelativePlugin = require('css-url-relative-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = require('./webpack.config');
@@ -151,3 +152,11 @@ module.exports = {
     },
   },
 };
+
+if (config.dev.debugMode) {
+  console.info('DEBUG MODE: ✔️');
+  module.exports.plugins.push(new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+    reportFilename: 'webpack-bundle-report.html',
+  }));
+}

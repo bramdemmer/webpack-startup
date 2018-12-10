@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -36,16 +35,8 @@ module.exports = merge(common, {
     new CopyWebpackPlugin([{
       from: config.images.filesLocation,
       to: config.images.outputPath,
+      flatten: true,
     }]),
     new ImageminPlugin({ test: /\.(png|jpe?g|gif|svg|webp)$/i }),
   ],
 });
-
-
-if (config.dev.debugMode) {
-  console.log('DEBUG MODE: Enabled.');
-  module.exports.plugins.push(new BundleAnalyzerPlugin({
-    analyzerMode: 'static',
-    reportFilename: 'webpack-bundle-report.html',
-  }));
-}
