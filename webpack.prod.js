@@ -4,7 +4,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
+const CssNano = require('cssnano');
 const common = require('./webpack.common');
 const config = require('./webpack.config');
 
@@ -13,8 +13,9 @@ module.exports = merge(common, {
   devtool: 'none',
   plugins: [
     new OptimizeCSSAssetsPlugin({
-      cssProcessorOptions: {
-        discardComments: { removeAll: true },
+      cssProcessor: CssNano,
+      cssProcessorPluginOptions: {
+        preset: ['default', { discardComments: { removeAll: true } }],
       },
     }),
     new webpack.DefinePlugin({

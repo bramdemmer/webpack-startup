@@ -16,6 +16,14 @@ To check VueJS Specific:
 - `eslint-plugin-vue` for vue linting
 - `vue-hot-reload-api` hot module reloading for vuejs.
 
+- use the html webpack plugin (when working headless...)
+  const HtmlWebpackPlugin = require('html-webpack-plugin');
+    // new HtmlWebpackPlugin({
+    //   template: './app/vue/vue-index.html',
+    //   filename: './vue-index.html',
+    //   inject: true,
+    // }),
+
 Todo AEM Specific:
 - make the plugin work. Apparently not working with webpack-dev-server. Also needs --watch argument. To test!
 - check: https://github.com/infielddigital/aem-webpack-example/issues/16

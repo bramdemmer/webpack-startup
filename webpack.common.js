@@ -6,7 +6,6 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = require('./webpack.config');
 
@@ -108,9 +107,6 @@ module.exports = {
           },
           {
             loader: 'extract-loader',
-            // options: {
-            //   publicPath: './',
-            // },
           },
           {
             loader: 'html-loader',
@@ -120,11 +116,6 @@ module.exports = {
     ],
   },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   template: './app/vue/vue-index.html',
-    //   filename: './vue-index.html',
-    //   inject: true,
-    // }),
     new VueLoaderPlugin(),
     new SVGSpritemapPlugin(config.icons.filesLocation, {
       sprite: {

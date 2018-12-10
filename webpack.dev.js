@@ -30,7 +30,7 @@ module.exports = merge(common, {
       },
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(), // for better HMR console messages
+    new webpack.NamedModulesPlugin(),
     new CopyWebpackPlugin([{
       from: config.images.filesLocation,
       to: config.images.outputPath,
