@@ -28,6 +28,7 @@
     "clean-webpack-plugin": "^1.0.0",
     "copy-webpack-plugin": "^4.6.0",
     "core-js": "^2.6.0",
+    "create-file-webpack": "^1.0.2",
     "cross-env": "^5.2.0",
     "css-loader": "^2.0.0",
     "css-url-relative-plugin": "^1.0.0",
@@ -61,7 +62,7 @@
     "url-loader": "^1.1.2",
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.2",
-    "vue-template-compiler": "^2.5.19",
+    "vue-template-compiler": "^2.5.20",
     "webpack": "^4.27.1",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
@@ -73,7 +74,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "svgxuse": "^1.2.6",
-    "vue": "^2.5.19",
+    "vue": "^2.5.20",
     "vue-router": "^3.0.2"
   }
 }

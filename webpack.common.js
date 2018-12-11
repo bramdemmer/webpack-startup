@@ -7,6 +7,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
+
 const config = require('./webpack.config');
 
 module.exports = {
@@ -49,10 +50,7 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         use: [
           {
-            loader: 'vue-style-loader',
-          },
-          {
-            loader: MiniCssExtractPlugin.loader,
+            loader: (process.env.NODE_ENV === 'development' && config.dev.hmr.enabled) ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',

@@ -1,6 +1,5 @@
 
 Todo General:
-- add 'flatten: true' to copy webpack plugin options
 - deal with relative paths and aliases. check: https://github.com/storybooks/storybook/issues/3339
 - fix css hot module reloading
 - Replace Sass with post-css only. CSS vars etc..
@@ -23,6 +22,7 @@ To check VueJS Specific:
     //   filename: './vue-index.html',
     //   inject: true,
     // }),
+
 
 Todo AEM Specific:
 - make the plugin work. Apparently not working with webpack-dev-server. Also needs --watch argument. To test!
