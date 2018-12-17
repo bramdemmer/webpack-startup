@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 module.exports = {
-  browsers: ['last 2 versions', 'not ie <= 10'],
+  browsers: ['last 2 versions', 'not ie <= 11'],
   entry: {
     main: ['@babel/polyfill', './app/assets/js/index.js'],
   },
