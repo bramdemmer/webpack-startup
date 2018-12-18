@@ -9,6 +9,11 @@ see this design system https://medium.com/codyhouse/create-your-design-system-pa
 - remove unused packages in package.json
 - check if     // new webpack.optimize.ModuleConcatenationPlugin(), helps create smaller bundle size with lots of JS.
 
+
+`npm install -g npm-check`
+
+`npm-check -u` to update packages
+
 To check VueJS Specific:
 - vue integration
 - `eslint-plugin-vue` for vue linting

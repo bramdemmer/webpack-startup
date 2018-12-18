@@ -2,7 +2,8 @@
 
 Frontend build system with webpack
 
-install nvm globally on your machine and make sure to use the latest LTS version of node when using this repo.
+Install [nvm windows](https://github.com/coreybutler/nvm-windows) on your machine and make sure to use the latest LTS version of node when using this repo.
+
 
 `npm install` to install the dependencies.
 
