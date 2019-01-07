@@ -12,7 +12,7 @@ see this design system https://medium.com/codyhouse/create-your-design-system-pa
 
 `npm install -g npm-check`
 
-`npm-check -u` to update packages
+`npm-check --skip-unused -u` to update packages
 
 To check VueJS Specific:
 - vue integration
