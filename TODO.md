@@ -2,7 +2,7 @@
 Todo General:
 - compare eslint and babel versions/setup with the vue-cli version
 - deal with relative paths and aliases. check: https://github.com/storybooks/storybook/issues/3339
-- more post-css features. CSS vars etc..
+- replace sass with post-css only with postcss env presets
 see this design system https://medium.com/codyhouse/create-your-design-system-part-1-typography-7c630d9092bd
 - more about code splitting: https://hackernoon.com/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
 - check if the global public path still works with different folder structure. Otherwise disable it.
