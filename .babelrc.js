@@ -6,11 +6,9 @@ module.exports = {
       "@babel/preset-env",
       {
         modules: false,
-        targets: {
-          browsers: config.browsers
-        },
         debug: config.dev.debugMode,
         useBuiltIns: "usage",
+        corejs: 3,
       }
     ]
   ]

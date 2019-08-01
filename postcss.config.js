@@ -1,9 +1,7 @@
-const config = require('./webpack.config');
+const autoprefixer = require('autoprefixer');
 
 module.exports = () => ({
   plugins: {
-    autoprefixer: {
-      browsers: config.browsers,
-    },
+    autoprefixer,
   },
 });

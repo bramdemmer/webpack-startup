@@ -27,14 +27,6 @@ To check VueJS Specific:
     //   inject: true,
     // }),
 
-
-Todo AEM Specific:
-- make the plugin work. Apparently not working with webpack-dev-server. Also needs --watch argument. To test!
-- check: https://github.com/infielddigital/aem-webpack-example/issues/16
-- check: https://github.com/infielddigital/aem-webpack-example
-- check: aem front: https://kevinw.de/aem-front/
-- https://www.youtube.com/watch?v=uvett3sZlko
-
 Todo multibrand:
 - create multibrand version
 

@@ -1,9 +1,9 @@
 require('dotenv').config();
-
+// import "core-js/stable";
+// import "regenerator-runtime/runtime";
 module.exports = {
-  browsers: ['last 2 versions', 'not ie <= 11'],
   entry: {
-    main: ['@babel/polyfill', './app/assets/js/index.js'],
+    main: ['core-js/stable', 'regenerator-runtime/runtime', './app/assets/js/index.js'],
   },
   output: {
     path: 'app/dist',
@@ -41,11 +41,5 @@ module.exports = {
     },
     debugMode: process.env.DEBUG_MODE || false,
     desktopNotifications: process.env.DESKTOP_NOTIFICATIONS || true,
-  },
-  aem: {
-    enabled: true,
-    targets: process.env.AEM_TARGETS || ['http://admin:admin@localhost:4502', 'http://admin:admin@localhost:4503'],
-    watchDir: './app',
-    exclude: '**/node_modules/**',
   },
 };
