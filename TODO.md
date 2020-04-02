@@ -27,13 +27,9 @@ To check VueJS Specific:
     //   inject: true,
     // }),
 
-Todo multibrand:
-- create multibrand version
-
 To check/test:
 - prettier : https://prettier.io/docs/en/eslint.html
 - add url-loader for small images
-- Test the difference between `babel-minify-webpack-plugin` and `uglifyjs-webpack-plugin`
 - Eventually add hashes `-[hash:8]` to files.
 - go through [all webpack loaders](https://webpack.js.org/loaders/)
 - go through [all webpack plugins](https://webpack.js.org/plugins/)
