@@ -16,7 +16,6 @@ const fromTheFuture = async (args) => {
   const { a, b } = args;
   await console.log('hello form async', a, b);
 
-
   console.log('Done2.2');
 };
 
